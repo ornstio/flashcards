@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="container-header">
+    <div class="header-text">Flash Cards</div>
+    <div class="header-search">
+      <mat-form-field class="header-search">
+        <input [(ngModel)]="search" (ngModelChange)="filter()" mat-ripple matInput>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="container-body">
+    <div class="category-list list">
+      <div [@fadeIn] class="category" *ngFor="let category of filteredCategories">
+        <div>{{category.title}}</div>
+        <div>{{category.createdOnDate() | amLocal | amDateFormat:'M/D/YYYY h:mma'}}</div>
+        <div>
+          <mat-icon (click)="goTo(category)">send</mat-icon>
+          <mat-icon (click)="firebaseService.deleteCategory(category)">delete_forever</mat-icon>
+          <mat-icon (click)="edit(category)">edit</mat-icon>
+        </div>
+      </div>
+    </div>
+    <button mat-mini-fab color="primary" class="add-category" (click)="add()"><mat-icon>add</mat-icon></button>
+  </div>
+</div>

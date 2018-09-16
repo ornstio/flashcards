@@ -1,0 +1,49 @@
+@import '../../assets/theme.scss';
+
+.add-category{
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.category-list{
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .category{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 0.5rem;
+        cursor:pointer;
+        border-radius: 0.25rem;
+        border: 1px solid $primary;
+        
+        div{
+            max-width: 33.3333333%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
+        }
+
+        div:last-child{
+            text-align: right;
+            mat-icon{
+                margin-left: 0.75rem;
+            }
+
+            mat-icon:hover{
+                color: $primary;
+            }
+        }
+    }
+
+    .category:hover{
+        background: rgba($accent,0.25);
+    }
+
+    .category:not(:first-child){
+        margin: 1rem 0;
+    }
+}

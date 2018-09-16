@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="container-header">
+    <div class="header-back" (click)="back()">
+      <mat-icon>arrow_back</mat-icon>
+    </div>
+    <div class="header-text">{{category?.$key ? "Edit" : "Create"}} Flash Cards</div>
+  </div>
+  <div class="container-body">
+    <mat-form-field class="category-name" floatPlaceholder="always">
+      <input [(ngModel)]="category.title" maxlength="24" placeholder="Name" matInput>
+    </mat-form-field>
+    <div class="category-list list">
+      <div [@fadeInOut] class="category" *ngFor="let flashCard of category?.flashCards; let $index = index;">
+        <mat-form-field floatPlaceholder="always">
+          <textarea [(ngModel)]="flashCard.title" color="primary" placeholder="Front" matInput></textarea>
+        </mat-form-field>
+        <mat-form-field floatPlaceholder="always">
+          <textarea [(ngModel)]="flashCard.answer" color="primary" placeholder="Back" matInput></textarea>
+        </mat-form-field>
+        <mat-icon (click)="remove($index)">delete_forever</mat-icon>
+      </div>
+    </div>
+    <div class="actions">
+        <button [@fadeInOut] mat-mini-fab color="primary" *ngIf="canSave()" class="save-flashcard" (click)="save()"><mat-icon>save</mat-icon></button>
+        <button [@fadeInOut] mat-mini-fab color="primary" class="add-flashcard" (click)="add()"><mat-icon>add</mat-icon></button>
+    </div>
+  </div>
+</div>

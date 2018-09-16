@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="container-header">
+    <div class="header-back" (click)="back()">
+      <mat-icon>arrow_back</mat-icon>
+    </div>
+    <div class="header-text">{{category?.title}}</div>
+  </div>
+  <div class="container-body">
+    <div #container class="flip-container">
+      <div class="front" (click)="open($event,container)">
+        <div>{{category?.flashCards[index]?.title}}</div>
+      </div>
+      <div class="back" (click)="next($event,container)">
+          <div>{{category?.flashCards[index]?.title}}</div>
+          <div>A: {{category?.flashCards[index]?.answer}}</div>
+          <button mat-mini-fab color="primary" *ngIf="index == category?.flashCards.length - 1" (click)="back()"><mat-icon>arrow_back</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>

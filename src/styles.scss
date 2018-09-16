@@ -1,1 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/theme.scss';
+
+html,body,app-root, app-categories, app-new-category, app-flashcard{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    background: #fafafa;
+}
+
+.container{
+    max-width: 50rem;
+    margin: 1rem auto;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 2rem);
+    width: 100%;
+    background-attachment: white;
+    border-radius: 0.125rem;
+
+    .container-header{
+        display: flex;
+        min-height: 3.5rem;
+        padding: 0 1rem;
+        background: $primary;
+        color: white;
+
+        .header-back{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 1rem;
+            border-right: 1px solid white;
+            margin-right: 1rem;
+            cursor:pointer;
+        }
+
+        .header-back:hover{
+            color: $accent;
+        }
+
+        .header-text{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .header-search{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            input{
+                caret-color: white;
+            }
+            .mat-form-field{
+                border-bottom: 1px solid white;
+            }
+
+            .mat-input-wrapper{
+                padding-bottom: 0px;
+            }
+
+            .mat-input-underline{
+                display: none;
+            }
+        }
+    }
+
+    .container-body{
+        flex: 1;
+        padding: 1rem;
+        position: relative;
+        display: flex;
+        background: white;
+    }
+}
+
+.list::-webkit-scrollbar{
+    width: .25rem;
+    background-color: #FAFAFA;
+    border-left: solid 1px #F5F5F5;
+}
+
+.list::-webkit-scrollbar-thumb{
+    background-color: #E0E0E0;
+    border-bottom: solid 1px #E0E0E0;
+    border-top: solid 1px #E0E0E0;
+    border-radius: 0.125rem;
+}
+
+@media only screen and (max-width: 850px) {
+    .container{
+        margin: 0;
+        height: 100%;
+
+        .header-text{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .header-search{
+            max-width: 6rem;
+        }
+    }
+}

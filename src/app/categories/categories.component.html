@@ -12,7 +12,7 @@
     <div class="category-list list">
       <div [@fadeIn] class="category" *ngFor="let category of filteredCategories">
         <div>{{category.title}}</div>
-        <div>{{category.createdOnDate() | amLocal | amDateFormat:'M/D/YYYY h:mma'}}</div>
+        <div>{{category.createdOnDate() | amLocal | amDateFormat:'M/D/YYYY'}}</div>
         <div>
           <mat-icon (click)="goTo(category)">send</mat-icon>
           <mat-icon (click)="firebaseService.deleteCategory(category)">delete_forever</mat-icon>
